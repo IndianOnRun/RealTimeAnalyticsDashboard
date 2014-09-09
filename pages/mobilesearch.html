@@ -1,0 +1,103 @@
+<div class="db-page-header">
+    <div class="db-page-content white-bg ng-scope"> 
+
+ <form class="form-horizontal" role="form">
+      <div class="form-group">
+        <label for="MobileNumber" class="col-xs-2">Mobile Number</label>
+          <div class="col-xs-2">
+            <input class="form-control" value="" ng-model= "mobilenumber" id="MobileNumber" action="" method="GET" placeholder="Mobile No.">
+          </div>
+ <div>
+        
+    </div>
+
+   <div class="form-group">
+
+
+  
+    <label for="dateranger" class="col-xs-2">Select dates:</label>
+    <div class="input-group col-xs-2">
+
+       <input id="dateranger" date-range-picker class="date-picker" type="text" ng-model="date" ui-date-format="yyyy-MM-dd" min="'2010-02-23'" max="'2015-02-25'"/>
+</div>
+  </div>
+        
+        
+        <div class="col-xs-2">
+          <button type="submit" ng-click="loadSession(mobilenumber, date)" class="btn btn-success">Search</button>
+        </div>
+      </div>
+    
+    </form>
+            
+</div>
+</div>
+ 
+    <div id="sessionitems">
+
+        <ul id="sidlist"></ul>
+    </div>
+
+
+    <table id="sessionsTable" class="table table-striped" width="100%" cellspacing="0">
+    <thead>
+            <tr>
+                <th>Session ID</th>
+                <th>Time</th>
+            </tr>
+            <center><tr ng-repeat="list in sessions">
+                <th class="btn btn-default btn-sm" active="tab.active" ng-click = "loadSessionData(list.sid)" ng-model="list.sid">{{list.sid}}</th>
+                <th>{{list.time}}</th>
+            </tr> </center>
+        </thead> 
+    </table>
+    <table id="sessionsDetailTable" class="table table-hover" width="100%" cellspacing="0">
+    <thead>
+            <tr>
+                <th>Event</th>
+                <th>Time</th>
+                <th>App ID</th>
+                <th>IP</th>
+                <th>Host</th>
+                <th>Data Center</th>
+                <th>Identity</th>
+                <th>Alias</th>
+                <th>Wam Token</th>
+                <th>Target App</th>
+                <th>User Agent</th>
+                <th>Failure Message</th>
+                <th>Failure</th>
+            </tr>
+            <tr ng-repeat="items in sessionDetails">
+                <th>{{items.eventName}}</th>
+                <th>{{items.time}}</th>
+                <th>{{items.appID}}</th>
+                <th>{{items.ip}}</th>
+                <th>{{items.host}}</th>
+                <th>{{items.dataCenter}}</th>
+                <th>{{items.identity}}</th>
+                <th>{{items.alias}}</th>
+                <th>{{items.wamToken}}</th>
+                <th>{{items.targetApp}}</th>
+                <th>{{items.userAgent}}</th>
+                <th>{{items.failureMessage}}</th>
+                <th>{{items.failure}}</th>
+            </tr>
+        </thead> 
+    </table>
+</div>
+
+<script type="text/javascript">
+
+//Date Picker
+
+$(document).ready(function() {
+  $('#daterange').daterangepicker({ 
+    timePicker: true, 
+    timePickerIncrement: 30, 
+    format: 'MM/DD/YYYY h:mm A' 
+  },function(start, end, label) {
+    
+  });
+});
+</script>

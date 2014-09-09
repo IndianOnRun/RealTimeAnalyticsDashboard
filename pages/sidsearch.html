@@ -1,0 +1,62 @@
+<div class="db-page-header">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="sid" class="col-xs-4">Session ID</label>
+                    <div class="col-xs-4">
+                        <input class="form-control" value="" ng-model="sid" id="sid" action="" method="GET" placeholder="east....">
+                    </div>
+
+                    <div class="col-xs-4">
+                        <button type="submit" ng-click="loadSidSession(sid)" class="btn btn-success">Search</button>
+                    </div>
+            </div>               
+        </form>
+                
+   
+</div>
+<div class="db-page-content white-bg ng-scope"> 
+ 
+    <div id="sessionitems">
+
+        <ul id="sidlist"></ul>
+    </div>
+    <div id="sessionitems">
+
+        <ul id="sidlist"></ul>
+    </div>
+    <table id="sessionsDetailTable" class="table table-hover" width="100%" cellspacing="0">
+    <thead>
+            <tr>
+                <th>Event</th>
+                <th>Time</th>
+                <th>App ID</th>
+                <th>IP</th>
+                <th>Host</th>
+                <th>Data Center</th>
+                <th>Identity</th>
+                <th>Alias</th>
+                <th>Wam Token</th>
+                <th>Target App</th>
+                <th>User Agent</th>
+                <th>Failure Message</th>
+                <th>Failure</th>
+            </tr>
+            <tr ng-repeat="items in sessionDetails">
+                <th>{{items.eventName}}</th>
+                <th>{{items.time}}</th>
+                <th>{{items.appID}}</th>
+                <th>{{items.ip}}</th>
+                <th>{{items.host}}</th>
+                <th>{{items.dataCenter}}</th>
+                <th>{{items.identity}}</th>
+                <th>{{items.alias}}</th>
+                <th>{{items.wamToken}}</th>
+                <th>{{items.targetApp}}</th>
+                <th>{{items.userAgent}}</th>
+                <th>{{items.failureMessage}}</th>
+                <th>{{items.failure}}</th>
+            </tr>
+        </thead> 
+    </table>
+</div>
+ </div>
